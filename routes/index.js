@@ -44,7 +44,14 @@ router.post('/', async function (req, res) {
         return;
     }
 
-    await sendBitcoin(address, btcAmount);
+    try {
+        const result = await sendBitcoin(address, btcAmount);
+    } catch (e) {
+        req.flash("error", e.message);
+        res.redirect("/");
+        return;
+    }
+    
     req.flash('success', btcAmount + " BTC sent successfully to " + address
         + ". It may take up a few minutes for the transaction to complete.");
     res.redirect("/");
