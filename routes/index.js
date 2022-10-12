@@ -46,15 +46,13 @@ router.post('/', async function (req, res) {
 
     try {
         const result = await sendBitcoin(address, btcAmount);
+        req.flash('success', btcAmount + " BTC sent successfully to " + address
+            + ". It may take up a few minutes for the transaction to complete.");
+        res.redirect("/");
     } catch (e) {
         req.flash("error", e.message);
         res.redirect("/");
-        return;
     }
-    
-    req.flash('success', btcAmount + " BTC sent successfully to " + address
-        + ". It may take up a few minutes for the transaction to complete.");
-    res.redirect("/");
 });
 
 async function getBalance(address) {
