@@ -4,8 +4,8 @@ const bitcore = require("bitcore-lib");
 const axios = require("axios");
 
 const network = "BTCTEST";
-const privateKey = "93Tk9Tqjq9KZ6CGunt8NBvCP7SAzgXBS55mDvwkGN3PzBoiEeKa";
-const publicAddress = "mkEsg1dTxPHUBAbEK5xVGAfZEcA9NMGTsk";
+const privateKey = "";
+const publicAddress = "";
 
 router.get('/', async function (req, res) {
     res.render('index', {
